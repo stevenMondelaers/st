@@ -1,0 +1,168 @@
+<html>
+  <head>
+  	<title>ST</title>
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link href="css/terminal.css" rel="stylesheet">
+	<style>
+	body{
+		background:url('img/tile.gif') #efefef;
+	}
+	.navbar-inner{
+		background:url('img/topbar-bg.png');
+	}
+	.tabbable{
+		position: relative;
+		left:-100px;
+	}
+	#container{
+	    background: none repeat scroll 0 0 white;
+	    border: 1px solid #DDDDDD;
+	    border-radius: 8px 8px 8px 8px;
+	    color: #333333;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 100px;
+	    min-height: 100px;
+	    padding-top: 20px;
+	    width: 800px;
+	}
+	</style>
+	<script>
+	var huidigeWaarde = 7;
+	//var huidigeWaarde = document.getElementById('count').value;
+	
+	function countOne(){
+		huidigeWaarde = huidigeWaarde + 1;
+		setValue();
+	}
+	
+	function setValue(){
+		document.getElementById('count').innerHTML = huidigeWaarde;
+	}
+	
+	</script>
+  </head>
+  <body onload="setValue();updateClock(); setInterval('updateClock()', 1000 );">
+  	<div class="navbar">
+  		<div class="navbar-inner">
+  			<div class="container">
+  				<a class="brand" href="#">ST</a>
+  			</div>
+  		</div>
+  	</div>
+	<div id="container">
+		<h1>NX-01</h1>
+		<div class="tabbable tabs-left">
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#lA">Terminal</a></li>
+				<li><a data-toggle="tab" href="#lB">Credits</a></li>
+				<li><a data-toggle="tab" href="#lC">Game</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="lA" class="tab-pane active">
+					<div class="terminal">
+					   <div class="upperpanel">
+					   	<div class="up-left up-lefttop">
+					   		<p>LIGHT SPC</p>
+					   		<p>CLOSE F10</p>
+					   	</div>
+					    <div class="up-left up-leftmid">
+					   		<br />
+					   		<p>ALARM OFF F9</p>
+					   	</div>
+					   	<div class="up-left up-leftbot">
+					   		<p>PHONEBOOK F8</p>
+					   		<br />
+					   	</div>
+					   	<div class="up-bottom"></div>
+					   </div>
+					   <div class="lowerpanel">
+					   	<div class="lo-top"></div>
+					   	<div class="lo-left lo-lefttop">
+					   		<p>WORLD TIME F7</p>
+					   		<p>MATH F6</p>
+					   	</div>
+					   	<div class="lo-left lo-leftmid">
+					   		<p>LCARS F5</p>
+					   		<br />
+					   	</div>
+					   	<div class="lo-left lo-leftmid">
+					   		<p>PROGRAMS F4</p>
+					   		<br />
+					   	</div>
+					   	<div class="lo-left lo-leftmid">
+					   		<p>FILES F3</p>
+					   		<br />
+					   	</div>
+					   	<div class="lo-left lo-leftmid">
+					   		<p>HELP F2</p>
+					   		<br />
+					   	</div>
+					   	<div class="lo-left lo-leftmid">
+					   		<p>SETTINGS F1</p>
+					   		<br />
+					   	</div>
+					   	<div class="lo-right">
+					   	<span id="clock">9:07 PM</span>
+					   </div>
+					   </div>
+					</div>
+				</div>
+				<div id="lB" class="tab-pane">
+					<p>http://rubenerd.com/uploads/dbimage.jpeg</p>
+
+				</div>
+				<div id="lC" class="tab-pane">
+							Blijf thuis x <span id="count"></span><br />
+		<input class="btn" type="button" value="Nog een keer" onclick="countOne();"/>
+					<img src="img/dbimage.jpeg" />
+				</div>
+			</div>
+		</div>
+	</div> <!-- /container -->
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+	    $('tabbable a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+    })
+
+	</script>
+	<script type="text/javascript">
+<!--
+
+function updateClock ( )
+{
+  var currentTime = new Date ( );
+
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+
+
+
+// -->
+</script>
+  </body>
+</html>
